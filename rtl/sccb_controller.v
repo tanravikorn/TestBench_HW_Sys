@@ -140,7 +140,12 @@ module sccb_controller(
                     else phase <= phase + 1;
                 end
                 DONE : begin
+                    busy <= 0;
                     ready <= 1;
+                    r_sioc <= 1;
+                    r_siod <= 1;
+                    siod_oe <= 1;
+                    phase <= 0;
                     state <= IDLE;
                 end
             endcase
